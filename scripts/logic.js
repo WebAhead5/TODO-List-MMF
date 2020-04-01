@@ -1,7 +1,7 @@
 // Part 1. Fill in any missing parts of the todoFunction object!
 // you can access these on todo.todoFunctions
 // For part one we expect you to use tdd
-var errors = require('../const/errors');
+//var errors = require('../const/errors');
 
 var todoFunctions = {
 
@@ -28,6 +28,7 @@ var todoFunctions = {
     addTodo: function(todos, newTodo) {
         var newObj = todoFunctions.cloneArrayOfObjects(todos);
         newTodo.Done = false;
+        newTodo.id = this.generateId()
         return newObj.concat(newTodo)
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       // returns a new array, it should contain todos with the newTodo added to the end.
@@ -35,13 +36,16 @@ var todoFunctions = {
       // hint: array.concat
     },
     deleteTodo: function(todos, idToDelete) {
+      return this.cloneArrayOfObjects(todos).filter(function(todoid) {
+        return todoid.id !== Number(idToDelete)
+        }); 
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       // return a new array, this should not contain any todo with an id of idToDelete
       // hint: array.filter
     },
     markTodo: function(todos, idToMark) {
         if(!Array.isArray(todos)){
-            return errors[0];
+            return 0;
         }
         var result = todoFunctions.cloneArrayOfObjects(todos);
         result.map(function(value){
