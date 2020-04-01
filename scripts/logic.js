@@ -1,9 +1,10 @@
 // Part 1. Fill in any missing parts of the todoFunction object!
 // you can access these on todo.todoFunctions
 // For part one we expect you to use tdd
-var errors = require('../const/errors');
+//var errors = require('../const/errors');
 
 var todoFunctions = {
+
     // todoFunctions.generateId() will give you a unique id
     // You do not need to understand the implementation of this function.
     generateId: (function() {
@@ -25,6 +26,10 @@ var todoFunctions = {
     },
     
     addTodo: function(todos, newTodo) {
+        var newObj = todoFunctions.cloneArrayOfObjects(todos);
+        newTodo.done = false;
+        newTodo.id = todoFunctions.generateId();
+        return newObj.concat(newTodo)
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       // returns a new array, it should contain todos with the newTodo added to the end.
       // add an id to the newTodo. You can use the generateId function to create an id.
@@ -36,9 +41,11 @@ var todoFunctions = {
       // hint: array.filter
     },
     markTodo: function(todos, idToMark) {
-        if(!Array.isArray(todos)){
-            return errors[0];
+        if(!Array.isArray(todos) || isNaN(idToMark)){
+            return 0;// errors[0];
         }
+
+
         var result = todoFunctions.cloneArrayOfObjects(todos);
         result.map(function(value){
             if(value.id == idToMark)
@@ -55,11 +62,10 @@ var todoFunctions = {
     },
   };
   
-  
-  // Why is this if statement necessary?
-  // The answer has something to do with needing to run code both in the browser and in Node.js
-  // See this article for more details: 
-  // http://www.matteoagosti.com/blog/2013/02/24/writing-javascript-modules-for-both-browser-and-node/
-  if (typeof module !== 'undefined') {
-    module.exports = todoFunctions;
-  }
+// Why is this if statement necessary?
+// The answer has something to do with needing to run code both in the browser and in Node.js
+// See this article for more details: 
+// http://www.matteoagosti.com/blog/2013/02/24/writing-javascript-modules-for-both-browser-and-node/
+if (typeof module !== 'undefined') {
+  module.exports = todoFunctions;
+}
