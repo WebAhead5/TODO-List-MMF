@@ -1,6 +1,7 @@
 // Part 1. Fill in any missing parts of the todoFunction object!
 // you can access these on todo.todoFunctions
 // For part one we expect you to use tdd
+var errors = require('../const/errors');
 
 var todoFunctions = {
     // todoFunctions.generateId() will give you a unique id
@@ -35,10 +36,16 @@ var todoFunctions = {
       // hint: array.filter
     },
     markTodo: function(todos, idToMark) {
-      // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-      // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-      // this element will have its done value toggled
-      // hint: array.map
+        if(!Array.isArray(todos)){
+            return errors[0];
+        }
+        var result = todoFunctions.cloneArrayOfObjects(todos);
+        result.map(function(value){
+            if(value.id == idToMark)
+                value.done = !value.done
+        });
+
+        return result;
     },
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
