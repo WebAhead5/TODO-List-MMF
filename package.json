@@ -1,16 +1,19 @@
 {
   "name": "TODO-List-MMF",
   "version": "1.0.0",
-  
   "description": "",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.13.2"
+  },
   "scripts": {
-    "test": "nodemon ./test/exercise1.test.js | tap-spec"
+    "test": "nodemon ./tests/testDelete.js | tap-spec"
   },
   "repository": {
     "type": "git",
