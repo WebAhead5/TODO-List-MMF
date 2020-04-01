@@ -29,6 +29,7 @@ var todoFunctions = {
         var newObj = todoFunctions.cloneArrayOfObjects(todos);
         newTodo.Done = false;
         newTodo.id = this.generateId()
+
         return newObj.concat(newTodo)
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       // returns a new array, it should contain todos with the newTodo added to the end.
@@ -44,9 +45,12 @@ var todoFunctions = {
       // hint: array.filter
     },
     markTodo: function(todos, idToMark) {
-        if(!Array.isArray(todos)){
-            return 0;
+
+        if(!Array.isArray(todos) || isNaN(idToMark)){
+            return 0;// errors[0];
         }
+
+
         var result = todoFunctions.cloneArrayOfObjects(todos);
         result.map(function(value){
             if(value.id == idToMark)
