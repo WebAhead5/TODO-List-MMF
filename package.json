@@ -1,7 +1,6 @@
 {
   "name": "todo-list-mmf",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -21,7 +20,9 @@
   "homepage": "https://github.com/WebAhead5/TODO-List-MMF#readme",
   "devDependencies": {
     "nodemon": "^2.0.2",
+    "tabe": "^1.0.4",
     "tap-spec": "^5.0.0",
     "tape": "^4.13.2"
-  }
+  },
+  "description": ""
 }
