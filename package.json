@@ -1,26 +1,50 @@
 {
+<<<<<<< HEAD
   "name": "TODO-List-MMF",
   "version": "1.0.0",
   
   "description": "",
+=======
+  "name": "todo-list-mmf",
+  "version": "1.0.0",
+>>>>>>> 6a67b2763c01e2a1c352f9bc8140d0b48c754fa1
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
+<<<<<<< HEAD
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "nodemon ./test/exercise1.test.js | tap-spec"
+=======
+  "scripts": {
+    "test": "nodemon ./tests/testMark.js | tap-spec"
+>>>>>>> 6a67b2763c01e2a1c352f9bc8140d0b48c754fa1
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebAhead5/TODO-List-MMF.git"
   },
+<<<<<<< HEAD
   "keywords": [],
+=======
+>>>>>>> 6a67b2763c01e2a1c352f9bc8140d0b48c754fa1
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/WebAhead5/TODO-List-MMF/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/WebAhead5/TODO-List-MMF#readme"
+=======
+  "homepage": "https://github.com/WebAhead5/TODO-List-MMF#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "tabe": "^1.0.4",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.13.2"
+  },
+  "description": ""
+>>>>>>> 6a67b2763c01e2a1c352f9bc8140d0b48c754fa1
 }
