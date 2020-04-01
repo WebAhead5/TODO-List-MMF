@@ -59,7 +59,6 @@
     // you do not need to change this function
     var renderState = function(state) {
       var todoListNode = document.createElement('ul');
-      console.log("line 62" + JSON.stringify(state));
       state.forEach(function(todo) {
         todoListNode.appendChild(createTodoNode(todo));
       });
