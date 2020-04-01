@@ -1,7 +1,13 @@
 // Part 1. Fill in any missing parts of the todoFunction object!
 // you can access these on todo.todoFunctions
 // For part one we expect you to use tdd
-//var errors = require('../const/errors');
+
+const errors = {
+    0: "invalid input",
+    1: "Invalid element number",
+    2: "description is too long",
+    3: "description is empty"
+}
 
 var todoFunctions = {
 
@@ -13,7 +19,6 @@ var todoFunctions = {
       function incrementCounter() {
         return (idCounter += 1);
       }
-  
       return incrementCounter;
     })(),
     
@@ -26,16 +31,27 @@ var todoFunctions = {
     },
     
     addTodo: function(todos, newTodo) {
+
+        if(!Array.isArray(todos) || typeof newTodo != 'object'){
+            return errors[0]
+        }
+
+        if(newTodo.description.trim().length == 0){
+            return errors[3];
+        }
+
+        if(newTodo.description.trim().length > 60){
+          return errors[2];
+        }
+
         var newObj = todoFunctions.cloneArrayOfObjects(todos);
         newTodo.Done = false;
         newTodo.id = this.generateId()
 
         return newObj.concat(newTodo)
-      // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-      // returns a new array, it should contain todos with the newTodo added to the end.
-      // add an id to the newTodo. You can use the generateId function to create an id.
-      // hint: array.concat
     },
+
+
     deleteTodo: function(todos, idToDelete) {
       return this.cloneArrayOfObjects(todos).filter(function(todoid) {
         return todoid.id !== Number(idToDelete)
@@ -47,7 +63,7 @@ var todoFunctions = {
     markTodo: function(todos, idToMark) {
 
         if(!Array.isArray(todos) || isNaN(idToMark)){
-            return 0;// errors[0];
+            return errors[0];
         }
 
 
@@ -72,5 +88,5 @@ var todoFunctions = {
 // See this article for more details: 
 // http://www.matteoagosti.com/blog/2013/02/24/writing-javascript-modules-for-both-browser-and-node/
 if (typeof module !== 'undefined') {
-  module.exports = todoFunctions;
+  module.exports = {todoFunctions,errors};
 }

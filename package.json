@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "nodemon ./tests/testMark.js | tap-spec"
+    "test_mark": "nodemon ./tests/testMark.js | tap-spec",
+    "test_add": "nodemon ./tests/testAdd.js | tap-spec"
   },
   "repository": {
     "type": "git",
