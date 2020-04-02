@@ -3,10 +3,11 @@
 // For part one we expect you to use tdd
 
 const errors = {
-    0: "invalid input",
+    0: "Invalid input",
     1: "Invalid element number",
-    2: "description is too long",
-    3: "description is empty"
+    2: "Description is too long",
+    3: "Description is empty",
+    4: "Element you try to delete is not exist"
 }
 
 var todoFunctions = {
@@ -53,12 +54,20 @@ var todoFunctions = {
 
 
     deleteTodo: function(todos, idToDelete) {
-      return this.cloneArrayOfObjects(todos).filter(function(todoid) {
+
+      if(!Array.isArray(todos) || isNaN(idToDelete)){
+          return errors[0]
+      }
+
+      var result =  this.cloneArrayOfObjects(todos).filter(function(todoid) {
         return todoid.id !== Number(idToDelete)
-        }); 
-      // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-      // return a new array, this should not contain any todo with an id of idToDelete
-      // hint: array.filter
+        });
+
+      if(!JSON.stringify(todos).localeCompare(JSON.stringify(result))){
+        return errors[4];
+      }
+
+      return result;
     },
     markTodo: function(todos, idToMark) {
 
