@@ -3,9 +3,7 @@
 // it keeps everything inside hidden from the rest of our application
 
  var state = [
-      { id: -3, description: 'first todo', done: false },
-      { id: -2, description: 'second todo', done: false },
-      { id: -1, description: 'third todo', done: false },
+      { id: -1, description: 'Delete me and start now!', done: false },
  ];
 
 (function() {
@@ -16,18 +14,24 @@
     // This function takes a todo, it returns the DOM node representing that todo
     var createTodoNode = function(todo) {
       var todoNode = document.createElement('li');
-      
+      console.log(todoNode)
+      var markTodobtn = document.createElement('img')
+      markTodobtn.src = '/res/check-mark.png'
+      // this changes the ui of the checkmarks and row colors when done.
       todoNode.setAttribute("id", todo.id)
       if(todo.done){
         todoNode.style.background = "red";
+        markTodobtn.src = '/res/cancel.png';
+
       } else {
-        todoNode.style.background = "blue";
+        todoNode.style.background = "";
       }
 
       // this adds the delete button
-      var deleteButtonNode = document.createElement('button');
+      var deleteButtonNode = document.createElement('img');
+      deleteButtonNode.src = '/res/trash.png'
+      deleteButtonNode.setAttribute("class", "deletebtn")
       deleteButtonNode.addEventListener('click', function(event) {
-        console.log(event)
         var newState = todoFunctions.deleteTodo(state, event.path[1].id);
         update(newState);
         console.log(newState)
@@ -35,15 +39,20 @@
        todoNode.appendChild(deleteButtonNode);
        todoNode.appendChild(document.createTextNode(todo.description));
   
-      // add markTodo button
-      var markTodobtn = document.createElement('button')
+      // adds markTodo button 
+      
+        markTodobtn.setAttribute("class", "markbtn")
+
         markTodobtn.addEventListener('click', function(event) {
-        console.log(event.path[1].id)
         var newState = todoFunctions.markTodo(state, event.path[1].id);
         update(newState)
       });
       todoNode.appendChild(markTodobtn);
+      
       // add classes for css
+
+      // reset input after submission TODO
+      
   
       return todoNode;
     };
