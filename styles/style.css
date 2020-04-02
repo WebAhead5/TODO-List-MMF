@@ -4,22 +4,27 @@
   }
   
   body {
-    background-image: url('/res/code2.jpg');
+    background-image: url('../res/code2.jpg');
     background-position: top;
     background-size: 100%;
     
     }
 
-    h1 {
-        font-size: 60px;
-        text-align: center;
-        font-family: monospace;
-        padding-top: 10vw;
-        padding-bottom: 10vw;
-        -webkit-text-fill-color: white; 
-        -webkit-text-stroke-width: 2px;
-        -webkit-text-stroke-color: rgb(0, 79, 110);
-    }
+  h1 {
+    font-size: 60px;
+    text-align: center;
+    font-family: monospace;
+    padding-top: 10vw;
+    padding-bottom: 10vw;
+    -webkit-text-fill-color: white; 
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0, 79, 110);
+  }
+
+  hr {
+    border: 2px solid rgb(136, 136, 136);
+    margin-bottom: 50px;
+  }
 
   /* Remove margins and padding from the list */
   ul {

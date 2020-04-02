@@ -1,12 +1,5 @@
 var test = require('tape');
-var logic = require('../scripts/logic');
-var errors = require('../const/errors');
-
-test('Example test', function(t) {
-
-  t.pass();
-  t.end();
-});
+var {todoFunctions:logic,errors} = require('../scripts/logic');
 
 test("Check an empty array", function(t) {
   var todos =[]
