@@ -134,3 +134,20 @@ test('Invalid argument array ', function(t) {
 
 
 });
+
+test('Invalid item number argument ', function(t) {
+
+  var todos = [
+     {id: 0, description: 'make tea'},
+     {id: 0, description: 'make eggs'},
+  ]
+  var id = 'p';
+
+  var actual = logic.markTodo(todos, id);
+  var expected = errors[0];
+
+  t.equal(actual,expected, "error number 0 ");
+  t.end();
+
+
+});
