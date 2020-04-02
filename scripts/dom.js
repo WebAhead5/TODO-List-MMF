@@ -21,7 +21,7 @@
     var markTodobtn = document.createElement('img');
 
     // init uncheck box
-    markTodobtn.src = '../res/empty.png';
+    markTodobtn.src = './res/empty.png';
 
     // this changes the ui of the checkmarks and row colors when done
     todoNode.setAttribute("id", todo.id)
@@ -29,14 +29,14 @@
       //if the box is clicked change to a checked box and change the background color.
       todoNode.style.background = "red";
       todoNode.style.textDecoration = "lineThrough"
-      markTodobtn.src = '../res/checkbox.png';
+      markTodobtn.src = './res/checkbox.png';
       } else {
         todoNode.style.background = "";
       }
 
       // this adds the delete button
       var deleteButtonNode = document.createElement('img');
-      deleteButtonNode.src = '../res/trash.png'
+      deleteButtonNode.src = './res/trash.png'
       deleteButtonNode.setAttribute("class", "deletebtn")
       deleteButtonNode.addEventListener('click', function(event) {
 
