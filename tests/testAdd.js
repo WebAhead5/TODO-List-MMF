@@ -31,7 +31,9 @@ test('adding an element with empty text description ', function(t) {
   var makeEggs = { description: '' };
   var expected = errors[3];
   var actual = logic.addTodo(todos, makeEggs)
-  actual.map((value)=> {delete value.id; return value})
+  if(Array.isArray(actual)){
+        actual.map((value)=> {delete value.id; return value})
+  }
   t.deepEqual(actual, expected, 'should be equal');
   t.end();
 });
