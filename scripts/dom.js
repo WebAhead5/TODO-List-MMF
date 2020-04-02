@@ -16,12 +16,12 @@
       var todoNode = document.createElement('li');
       console.log(todoNode)
       var markTodobtn = document.createElement('img')
-      markTodobtn.src = '/res/check-mark.png'
+      markTodobtn.src = './res/check-mark.png'
       // this changes the ui of the checkmarks and row colors when done.
       todoNode.setAttribute("id", todo.id)
       if(todo.done){
         todoNode.style.background = "red";
-        markTodobtn.src = '/res/cancel.png';
+        markTodobtn.src = './res/cancel.png';
 
       } else {
         todoNode.style.background = "";
@@ -29,7 +29,7 @@
 
       // this adds the delete button
       var deleteButtonNode = document.createElement('img');
-      deleteButtonNode.src = '/res/trash.png'
+      deleteButtonNode.src = './res/trash.png'
       deleteButtonNode.setAttribute("class", "deletebtn")
       deleteButtonNode.addEventListener('click', function(event) {
         var newState = todoFunctions.deleteTodo(state, event.path[1].id);
