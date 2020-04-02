@@ -16,12 +16,12 @@
       var todoNode = document.createElement('li');
       console.log(todoNode)
       var markTodobtn = document.createElement('img')
-      markTodobtn.src = './res/check-mark.png'
+      markTodobtn.src = './res/empty.png'
       // this changes the ui of the checkmarks and row colors when done.
       todoNode.setAttribute("id", todo.id)
       if(todo.done){
         todoNode.style.background = "red";
-        markTodobtn.src = './res/cancel.png';
+        markTodobtn.src = './res/checkbox.png';
 
       } else {
         todoNode.style.background = "";
@@ -38,7 +38,6 @@
       });
        todoNode.appendChild(deleteButtonNode);
        todoNode.appendChild(document.createTextNode(todo.description));
-  
       // adds markTodo button 
       
         markTodobtn.setAttribute("class", "markbtn")
