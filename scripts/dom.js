@@ -34,7 +34,6 @@
       deleteButtonNode.addEventListener('click', function(event) {
         var newState = todoFunctions.deleteTodo(state, event.path[1].id);
         update(newState);
-        console.log(newState)
       });
        todoNode.appendChild(deleteButtonNode);
        todoNode.appendChild(document.createTextNode(todo.description));
@@ -58,14 +57,16 @@
   
     // bind create todo form
     if (addTodoForm) {
-
         addTodoForm.addEventListener('submit', function(event) {
-            console.log(event.target.description.value);
             event.preventDefault();
             var description = event.target.description.value;
             var obj = Object.assign({},{description: description});
             var newState = todoFunctions.addTodo(state,obj);
-            update(newState);
+            if(Array.isArray(newState)){
+                update(newState);
+            }else{
+                alert(newState)
+            }
         });
     }
   
@@ -78,7 +79,6 @@
     // you do not need to change this function
     var renderState = function(state) {
       var todoListNode = document.createElement('ul');
-      console.log("line 62" + JSON.stringify(state));
       state.forEach(function(todo) {
         todoListNode.appendChild(createTodoNode(todo));
       });
