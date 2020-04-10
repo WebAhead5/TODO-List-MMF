@@ -10,7 +10,8 @@
     "test_mark": "nodemon ./tests/testMark.js | tap-spec",
     "test_add": "nodemon ./tests/testAdd.js | tap-spec",
     "test_delete": "nodemon ./tests/testDelete.js | tap-spec",
-    "test_sort": "nodemon ./tests/testSort.js | tap-spec"
+    "test_sort": "nodemon ./tests/testSort.js | tap-spec",
+    "test": "nodemon ./tests/*.js  | tap-spec"
   },
   "repository": {
     "type": "git",
